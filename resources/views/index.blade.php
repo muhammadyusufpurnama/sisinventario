@@ -1,25 +1,28 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Tutorial Membuat CRUD Pada Laravel - www.malasngoding.com</title>
-</head>
-<body>
+@extends('master2')
 
-	<h2>www.malasngoding.com</h2>
-	<h3>Data Pegawai</h3>
+@section('title','Data Pegawai')
 
-	<a href="/pegawai/tambah"> + Tambah Pegawai Baru</a>
+@section('konten')
+	<h2>Yussa Tutoring</h2>
+    <h4>Data Pegawai</h4>
+
+	<a href="/pegawai/tambah" class="btn btn-primary"> + Tambah Pegawai Baru</a>
 
 	<br/>
+    <p>Cari Data Pegawai :</p>
+	<form action="/pegawai/cari" method="GET" class="form-inline">
+		<input class="form-control" type="text" name="cari" placeholder="Cari Nama Pegawai .." value="{{ old("cari", isset($cari) ? $cari : '') }}">
+		<input type="submit" value="CARI" class="btn btn-info">
+	</form>
 	<br/>
 
-	<table border="1">
+	<table class="table table-striped table-hover">
 		<tr>
 			<th>Nama</th>
 			<th>Jabatan</th>
 			<th>Umur</th>
 			<th>Alamat</th>
-			<th>Opsi</th>
+			<th class="text-center">Opsi</th>
 		</tr>
 		@foreach($pegawai as $p)
 		<tr>
@@ -27,15 +30,13 @@
 			<td>{{ $p->pegawai_jabatan }}</td>
 			<td>{{ $p->pegawai_umur }}</td>
 			<td>{{ $p->pegawai_alamat }}</td>
-			<td>
-				<a href="/pegawai/edit/{{ $p->pegawai_id }}">Edit</a>
-				|
-				<a href="/pegawai/hapus/{{ $p->pegawai_id }}">Hapus</a>
+			<td class="text-center">
+				<a href="/pegawai/edit/{{ $p->pegawai_id }}" class="btn btn-warning">Edit</a>
+				||
+				<a href="/pegawai/hapus/{{ $p->pegawai_id }}" class="btn btn-danger">Hapus</a>
 			</td>
 		</tr>
 		@endforeach
 	</table>
-
-
-</body>
-</html>
+    {{ $pegawai->links() }}
+@endsection
