@@ -65,3 +65,10 @@ Route::post('/pegawai/update','App\Http\Controllers\PegawaiController@update');
 Route::get('/pegawai/hapus/{id}','App\Http\Controllers\PegawaiController@hapus');
 Route::get('/pegawai/cari','App\Http\Controllers\PegawaiController@cari');
 Route::get('/pegawai/view/{id}','App\Http\Controllers\PegawaiController@view');
+
+
+//route CRUD keranjangbelanja
+Route::get('/keranjangbelanja','App\Http\Controllers\KeranjangbelanjaController@index');
+Route::post('/keranjangbelanja/store','App\Http\Controllers\keranjangbelanjaController@store');
+Route::get('/keranjangbelanja/beli','App\Http\Controllers\KeranjangbelanjaController@beli');
+Route::get('/keranjangbelanja/batal/{id}','App\Http\Controllers\keranjangbelanjaController@batal');
