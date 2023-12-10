@@ -72,3 +72,13 @@ Route::get('/keranjangbelanja','App\Http\Controllers\KeranjangbelanjaController@
 Route::post('/keranjangbelanja/store','App\Http\Controllers\keranjangbelanjaController@store');
 Route::get('/keranjangbelanja/beli','App\Http\Controllers\KeranjangbelanjaController@beli');
 Route::get('/keranjangbelanja/batal/{id}','App\Http\Controllers\keranjangbelanjaController@batal');
+
+//route CRUD pra_eas
+Route::get('/mouse','App\Http\Controllers\MouseController@index');
+Route::post('/mouse/store','App\Http\Controllers\MouseController@store');
+Route::get('/mouse/tambah','App\Http\Controllers\MouseController@tambah');
+Route::get('/mouse/hapus/{id}','App\Http\Controllers\MouseController@hapus');
+Route::post('/mouse/update','App\Http\Controllers\MouseController@update');
+Route::get('/mouse/edit/{id}','App\Http\Controllers\MouseController@edit');
+Route::get('/mouse/cari','App\Http\Controllers\MouseController@cari');
+Route::get('/mouse/view/{id}','App\Http\Controllers\MouseController@view');
