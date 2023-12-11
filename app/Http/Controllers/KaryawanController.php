@@ -22,27 +22,33 @@ class KaryawanController extends Controller
 	// method untuk menampilkan view form tambah karyawan
 	public function tambah()
 	{
-        // mengambil data dari table karyawan
-		//$karyawan = DB::table('karyawan')->get();
-        $karyawan = DB::table('karyawan')->get();
-
 		// memanggil view tambah
-		return view('tambahkaryawan', ['karyawan' => $karyawan]);
+		return view('tambahkaryawan');
 
 	}
 
 	// method untuk insert data ke table karyawan
 	public function store(Request $request)
 	{
-		// insert data ke table karyawan
+		// Check if kodekaryawan already exists
+    $existingkodekaryawan = DB::table('karyawan')->where('kodepegawai', $request->kode)->first();
+
+    if ($existingkodekaryawan) {
+        return redirect('/karyawan/tambah')->withErrors(['error' => ' kodepegawai SUDAH ADA di tabel']);
+    }
+
+        if ($existingkodekaryawan) {
+            return redirect('karyawan/tambah');
+        }
+		// insert data ke table pegawai
 		DB::table('karyawan')->insert([
 			'kodepegawai' => $request->kode,
 			'namalengkap' => $request->nama,
 			'divisi' => $request->divisi,
 			'departemen' => $request->departemen
 		]);
-		// alihkan halaman ke halaman karyawan
-		return redirect('/karyawan');
+		// alihkan halaman ke halaman awal
+		return redirect('/indexdd');
 
 	}
 

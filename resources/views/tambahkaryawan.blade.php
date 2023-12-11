@@ -47,25 +47,9 @@
         </div>
 		<input type="submit" value="Simpan Data">
 	</form>
-
-    @foreach($karyawan as $p)
-    <script>
-        function checkValue() {
-          // Ambil nilai dari input
-          var inputValue = document.getElementById("kode").value;
-
-          // Array nilai yang diinginkan
-          var allowedValues = {{ $p->kodepegawai }};
-
-          // Periksa apakah nilai input ada dalam array
-          if (allowedValues.includes(inputValue)) {
-            alert("Kode Sama");
-            return redirect('/karyawan/tambah');
-          } else {
-            alert("selamat data ditambahkan");
-            return redirect('/karyawan');
-          }
-        }
-        </script>
-        @endforeach
+    @if($errors->any())
+        <div class="alert alert-danger">
+            {{ $errors->first() }}
+        </div>
+    @endif
 @endsection

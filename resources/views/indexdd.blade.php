@@ -18,8 +18,8 @@
 		<tr>
 			<td>{{ $p->kodepegawai }}</td>
 			<td>{{ $p->namalengkap }}</td>
-			<td>{{ $p->divisi }}</td>
-			<td>{{$p->departemen}}</td>
+			<td>{{strtoupper($p->divisi)}}</td>
+			<td>{{strtolower($p->departemen)}}</td>
 			<td class="text-center">
 		    <a href="/karyawan/hapus/{{ $p->kodepegawai }}" class="btn btn-danger">Hapus</a>
 			</td>
