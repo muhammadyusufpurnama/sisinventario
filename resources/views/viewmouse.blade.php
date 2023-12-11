@@ -49,7 +49,7 @@
                 </div>
                 :
                 <div class="col-xs-9" style="width: 20%">
-                    <input class="form-check-input" type="checkbox" value="" {{ $p->tersedia === 'Y' ? 'checked' : '' }} id="flexCheckDefault">
+                    <input disabled class="form-check-input" type="checkbox" value="" {{ $p->tersedia === 'Y' ? 'checked' : '' }} id="flexCheckDefault">
                 {{-- <input required="required" disabled style="border-style: hidden; float: left;" name="alamat" value="@if ( $p->stockmouse == 0) Tidak Tersedia
                 @else Tersedia @endif"> --}}
                 </div>

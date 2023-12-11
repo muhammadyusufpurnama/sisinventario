@@ -82,3 +82,10 @@ Route::post('/mouse/update','App\Http\Controllers\MouseController@update');
 Route::get('/mouse/edit/{id}','App\Http\Controllers\MouseController@edit');
 Route::get('/mouse/cari','App\Http\Controllers\MouseController@cari');
 Route::get('/mouse/view/{id}','App\Http\Controllers\MouseController@view');
+
+//route eas
+//route CRUD
+Route::get('/karyawan','App\Http\Controllers\KaryawanController@index');
+Route::get('/karyawan/tambah','App\Http\Controllers\KaryawanController@tambah');
+Route::post('/karyawan/store','App\Http\Controllers\KaryawanController@store');
+Route::get('/karyawan/hapus/{id}','App\Http\Controllers\KaryawanController@hapus');
